@@ -19,5 +19,8 @@ COPY config/ssl.conf /etc/httpd/conf.d/ssl.conf
 COPY config/non-ssl.conf /etc/httpd/conf.d/non-ssl.conf
 COPY config/index.html /var/www/html/index.html
 EXPOSE 80 8080 443 8443
-USER apache
+USER root
+RUN adduser 1000700000
+RUN usermod -a -G wheel 1000700000
+USER 1000700000
 CMD ["/usr/sbin/init"]
