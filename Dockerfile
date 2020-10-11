@@ -19,10 +19,8 @@ COPY config/ssl.conf /etc/httpd/conf.d/ssl.conf
 COPY config/non-ssl.conf /etc/httpd/conf.d/non-ssl.conf
 COPY config/index.html /var/www/html/index.html
 EXPOSE 80 8080 443 8443
-USER root
-RUN echo "root:Docker!" | chpasswd
 
-USER root
+USER apache
 
 
 CMD ["/usr/sbin/init"]
