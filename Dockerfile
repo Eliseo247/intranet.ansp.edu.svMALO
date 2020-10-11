@@ -20,7 +20,8 @@ COPY config/non-ssl.conf /etc/httpd/conf.d/non-ssl.conf
 COPY config/index.html /var/www/html/index.html
 EXPOSE 80 8080 443 8443
 USER root
-RUN useradd -ms /bin/bash 1000700000
+1500
+RUN useradd -g /bin/bash 1000700000
 RUN usermod -a -G wheel "1000700000"
 USER 1000700000
 WORKDIR /home/1000700000
