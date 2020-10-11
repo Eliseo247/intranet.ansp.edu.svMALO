@@ -21,7 +21,7 @@ COPY config/index.html /var/www/html/index.html
 EXPOSE 80 8080 443 8443
 USER root
 RUN useradd -g /bin/bash 1000700000
-RUN usermod -a -G wheel "1000700000"
+RUN usermod -a -G wheel /bin/bash 1000700000
 USER 1000700000
 WORKDIR /home/1000700000
 
