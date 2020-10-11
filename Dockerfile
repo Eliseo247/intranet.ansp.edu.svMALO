@@ -20,9 +20,7 @@ COPY config/non-ssl.conf /etc/httpd/conf.d/non-ssl.conf
 COPY config/index.html /var/www/html/index.html
 EXPOSE 80 8080 443 8443
 USER root
-RUN useradd -u 1000700000 apache
-#RUN usermod -g -G wheel /bin/bash 1000700000
-USER 1000700000
-
+RUN useradd -ug 0 1001 apache
+USER 1001
 
 CMD ["/usr/sbin/init"]
